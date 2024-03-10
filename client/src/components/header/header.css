@@ -95,7 +95,7 @@
   font-style: normal;
   position: relative;
   bottom: 20px;
-  text-shadow: 1px 2px 1px #585555; 
+  text-shadow: 1px 2px 1px #585555;
 }
 
 .headerLayout-star {
@@ -107,3 +107,4 @@
 .headerStarIcon {
   color: yellow;
 }
+

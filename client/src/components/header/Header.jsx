@@ -32,7 +32,6 @@ const Header = () => {
           <FaRegStar className="headerStarIcon"/>
         </div>
       </div>
-
     </div>
   );
 };
