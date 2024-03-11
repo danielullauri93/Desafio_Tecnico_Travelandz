@@ -1,4 +1,7 @@
-import { FaUser } from "react-icons/fa";
+import { FaCarSide, FaCalendarAlt } from "react-icons/fa";
+import { FaLocationDot, FaUsers } from "react-icons/fa6";
+import { IoTime } from "react-icons/io5";
+import { BiSolidCategory } from "react-icons/bi";
 import "./transfer.css";
 
 const Transfer = () => {
@@ -7,68 +10,74 @@ const Transfer = () => {
       <form className="transferContainerInputs">
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <h3>Origen</h3>
+            <FaLocationDot className="transferIcon" />
+            <h3>Origin</h3>
           </label>
           <input
-            icon={<FaUser />}
             type="text"
             className="transferInput"
-            placeholder="Ingrese lugar de salida"
+            placeholder="Enter place of exit"
           />
         </div>
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <h3>Destino</h3>
+            <FaLocationDot className="transferIcon" />
+            <h3>Destination</h3>
           </label>
           <input
             type="text"
             className="transferInput"
-            placeholder="Ingrese lugar de destino"
+            placeholder="Enter your destination"
           />
         </div>
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <h3>Fecha de llegada</h3>
+            <FaCalendarAlt className="transferIcon"/>
+            <h3>Date of arrival </h3>
           </label>
           <input
             type="text"
             className="transferInput"
-            placeholder="Fecha de llegada"
+            placeholder="Enter Arrival Date"
           />
         </div>
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <h3>Hora de llegada</h3>
+            <IoTime className="transferIcon"/>
+            <h3>Arrival time</h3>
           </label>
           <input
             type="text"
             className="transferInput"
-            placeholder="Hora de llegada"
+            placeholder="Enter Time of Arrival"
           />
         </div>
 
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <h3>Numero de personas</h3>
+            <FaUsers className="transferIcon"/>
+            <h3>Number of people</h3>
           </label>
           <input
             type="text"
             className="transferInput"
-            placeholder="Ingrese cuantas personas son"
+            placeholder="Enter the number of people"
           />
         </div>
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <h3>Categoria</h3>
+            <BiSolidCategory className="transferIcon"/>
+            <h3>Category</h3>
           </label>
           <input
             type="text"
             className="transferInput"
-            placeholder="Categoria"
+            placeholder="Category"
           />
         </div>
         <div className="transferInputs">
           <label className="transferInputs-label">
+            <FaCarSide className="transferIcon"/>
             <h3>Tipo de traslado</h3>
           </label>
           <input

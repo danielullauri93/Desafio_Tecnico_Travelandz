@@ -1,6 +1,6 @@
 import Navbar from "../../components/navbar/Navbar";
 import Header from "../../components/header/Header";
-import List from "../List/List";
+import Footer from "../../components/footer/Footer";
 import Transfer from "../../components/transfer/Transfer";
 
 const Home = () => {
@@ -9,6 +9,7 @@ const Home = () => {
       <Navbar />
       <Header />
       <Transfer />
+      <Footer />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 .transferContainer {
   /* background-color: red; */
-  height: 500px;
+  height: 550px;
   width: 100%;
   display: block;
 }
@@ -32,7 +32,7 @@
 
 .transferInputs-label {
   /* background-color: red; */
-  color: rgb(72, 72, 72);
+  color: #003580;
   width: 280px;
   height: 30px;
   display: flex;
@@ -40,6 +40,7 @@
   justify-content: flex-start;
   align-items: center;
   gap: 25px;
+  text-shadow: -1px 1px 4px #8b8989;
 }
 
 .transferInputs-label h3{
@@ -56,10 +57,37 @@
   background-color: rgb(209, 231, 250);
   font-size: 13px;
   outline: none;
-  padding-left: 10px;
+  padding-left: 20px;
 }
 ::placeholder {
   color: #8b8989;
+}
+
+.transferIcon {
+  color: rgb(64, 143, 189);
+  height: 60px;
+  text-shadow: -1px -1px 5px #8b8989;
+}
+
+.transferButton {
+  color: #fff;
+  background-color: #003580;
+  font-size: 24px;
+  font-weight: 900;
+  position: relative;
+  top: 12px;
+  width: 200px;
+  height: 50px;
+  border: none;
+  border-radius: 15px 15px;
+  box-shadow: 2px 2px 3px #252424;
+  cursor: pointer;
+}
+
+.transferButton:hover {
+  color: #fff;
+  background-color: #1154b3;
+  box-shadow: 2px 2px 3px #003580;
 }
 
 
