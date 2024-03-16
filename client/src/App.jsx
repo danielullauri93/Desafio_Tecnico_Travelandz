@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/home/Home";
 import "./App.css";
+import List from "./pages/List/List";
 
 const router = createBrowserRouter([
   {
@@ -15,10 +16,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      // {
-      //   path: "/post/:id",
-      //   element: <Single />,
-      // },
+      {
+        path: "/list/",
+        element: <List />,
+      },
       // {
       //   path: "/write",
       //   element: <Write />,

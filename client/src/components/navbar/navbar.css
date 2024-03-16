@@ -1,12 +1,17 @@
 .navbar {
+  position: relative;
+  width: auto;
+  background-color: #2a99e4;
   display: flex;
   justify-content: center;
-  height: 100px;
-  background-color: #003580;
+  flex-wrap: wrap;
+  height: 65px;
+  box-shadow: 1px 1px 15px black;
 }
 
 .navContainer {
   width: 100%;
+  background-color: #2a99e4;
   color: white;
   display: flex;
   flex-wrap: wrap;
@@ -15,41 +20,57 @@
 }
 
 .logo {
+  background-color: #2a99e4;
   font-weight: 500;
   display: flex;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   gap: 35px;
 }
 
-.logo .navLogo {
-  height: 50px;
-  width: 50px;
-  
+.logo h1 {
+  background-color: #2a99e4;
+  text-shadow: 2px 1px 2px white;
 }
 
-.logo span {
-  font-size: 30px;
-  
+.navLogo {
+  background-color: #2a99e4;
+  height: 50px;
+  width: 50px;
 }
 
 .navItems {
+  background-color: #2a99e4;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-
 .navButton {
+  background-color: #2a99e4;
   margin-left: 20px;
-  border: none;
-  border-radius: 10px 10px 10px 10px;
   padding: 10px 12px;
-  cursor: pointer;
-  color: #003580;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  gap: 20px;
 }
 
 .navIcon {
-  height: 20px;
-  width: 20px;
+  background-color: white;
+  border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  color: black;
+  box-shadow: 0.1em 0.09em 1px #2c2c2c;
+  padding: 20px;
+  font-size: 16px;
+}
+.navIcon:hover {
+  color: white;
+  background-color: black;
 }

@@ -1,26 +1,27 @@
 .transferContainer {
-  /* background-color: red; */
-  height: 550px;
-  width: 100%;
-  display: block;
+  height: auto;
+  width: auto;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  top: 80px;
+  ;
+
 }
 
 .transferContainerInputs {
-  /* background-color: green; */
-  height: 400px;
-  width: 100%;
+  height: auto;
+  width: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  justify-content:center;
+  align-content: center;
   gap: 20px;
-  position: relative;
-  top: 50px;
+  top: 5px;
 }
 
 .transferInputs {
-  /* background-color: blue; */
   height: 100px;
   width: 600px;
   display: flex;
@@ -31,21 +32,21 @@
 }
 
 .transferInputs-label {
-  /* background-color: red; */
-  color: #003580;
+  color: #eef2f5;
   width: 280px;
   height: 30px;
+  letter-spacing: 0.04em;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   gap: 25px;
-  text-shadow: -1px 1px 4px #8b8989;
+  text-shadow: 1px 1px 3px #9d9da1;
 }
 
 .transferInputs-label h3{
-  font-size: 21px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .transferInput {
@@ -53,41 +54,45 @@
   height: 50px;
   border: none;
   border-radius: 5px 5px;
-  box-shadow: -2px 2px 5px #8b8989;
-  background-color: rgb(209, 231, 250);
-  font-size: 13px;
+  background-color: #2a99e4;
+  color: white;
+  font-weight: 700;
+  letter-spacing:0.02em;
+  box-shadow: 2px 2px 5px #1a3946;
+  font-size: 14px;
   outline: none;
   padding-left: 20px;
 }
 ::placeholder {
-  color: #8b8989;
+  font-weight:lighter;
+  font-size: 12px;
+  color: #726a6a;
 }
 
 .transferIcon {
-  color: rgb(64, 143, 189);
+  color: white;
   height: 60px;
-  text-shadow: -1px -1px 5px #8b8989;
 }
 
 .transferButton {
-  color: #fff;
-  background-color: #003580;
-  font-size: 24px;
-  font-weight: 900;
+  background-color: white;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  letter-spacing: 0.1em;
   position: relative;
   top: 12px;
-  width: 200px;
+  width: 170px;
   height: 50px;
   border: none;
-  border-radius: 15px 15px;
-  box-shadow: 2px 2px 3px #252424;
+  border-radius: 7px 7px;
+  box-shadow: 0.1em 0.09em 1px black;
   cursor: pointer;
 }
 
 .transferButton:hover {
-  color: #fff;
-  background-color: #1154b3;
-  box-shadow: 2px 2px 3px #003580;
+  color: white;
+  background-color: black;
 }
 
 

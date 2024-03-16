@@ -78,16 +78,16 @@ const Transfer = () => {
         <div className="transferInputs">
           <label className="transferInputs-label">
             <FaCarSide className="transferIcon"/>
-            <h3>Tipo de traslado</h3>
+            <h3>Type of transfer</h3>
           </label>
           <input
             type="text"
             className="transferInput"
-            placeholder="Tipo de traslado"
+            placeholder="Type of transfer"
           />
         </div>
         <div className="transferInputs">
-          <button className="transferButton">Solicitar</button>
+          <button type="submit" className="transferButton">Solicitar</button>
         </div>
       </form>
     </div>
