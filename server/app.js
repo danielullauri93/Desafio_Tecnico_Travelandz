@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 import express from "express";
-import router from "./routes/index.routes.js";
+import router from "./routes/index.routes.js";        
 // import errorController from "./controllers/error/index.controller.js";
 
 dotenv.config();
