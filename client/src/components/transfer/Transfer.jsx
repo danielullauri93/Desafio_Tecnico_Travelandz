@@ -2,21 +2,18 @@
 import React, { useState } from "react";
 import { FaCarSide, FaCalendarAlt } from "react-icons/fa";
 import { FaLocationDot, FaUsers } from "react-icons/fa6";
-import { IoTime } from "react-icons/io5";
+import { IoTime, IoAirplane } from "react-icons/io5";
 import { BiSolidCategory } from "react-icons/bi";
 import "./transfer.css";
 import useCountryOptions from "../../hooks/useCountryOptions.js";
+import useTerminalOptions from "../../hooks/useTerminalOptions.js";
 
 const Transfer = () => {
-  const {
-    filteredOriginOptions,
-    filteredDestinationOptions,
-    filterOriginOptions,
-    filterDestinationOptions,
-  } = useCountryOptions();
+  const { filteredOriginOptions, filterOriginOptions } = useCountryOptions();
+  const { filteredTerminalOptions, filterTerminalOptions } =
+    useTerminalOptions();
   const [selectedOriginCountry, setSelectedOriginCountry] = useState("");
-  const [selectedDestinationCountry, setSelectedDestinationCountry] =
-    useState("");
+  const [selectedTerminal, setSelectedTerminal] = useState("");
 
   return (
     <div className="transferContainer">
@@ -50,26 +47,27 @@ const Transfer = () => {
         </div>
         <div className="transferInputs">
           <label className="transferInputs-label">
-            <FaLocationDot className="transferIcon" />
-            <h3>Destination</h3>
+            <IoAirplane className="transferIcon" />
+            <h3>Terminal</h3>
           </label>
           <div className="transferInputContainer">
             <input
               type="text"
               className="transferInput"
-              value={selectedDestinationCountry}
-              onChange={(e) => setSelectedDestinationCountry(e.target.value)}
+              value={selectedTerminal}
+              onChange={(e) => setSelectedTerminal(e.target.value)}
               placeholder="Search destination country"
-              onInput={(e) => filterDestinationOptions(e.target.value)}
+              onInput={(e) => filterTerminalOptions(e.target.value)}
             />
             <select
               className="transferSelect"
-              value={selectedDestinationCountry}
-              onChange={(e) => setSelectedDestinationCountry(e.target.value)}
+              value={selectedTerminal}
+              onChange={(e) => setSelectedTerminal(e.target.value)}
             >
-              {filteredDestinationOptions.map((country) => (
-                <option key={country.id} value={country.name}>
-                  {country.name}
+              {filteredTerminalOptions.map((terminal) => (
+                <option key={terminal.id} value={terminal.description}>
+                  {/* Aquí debería ser terminal.description en lugar de country.description */}
+                  {terminal.description}
                 </option>
               ))}
             </select>

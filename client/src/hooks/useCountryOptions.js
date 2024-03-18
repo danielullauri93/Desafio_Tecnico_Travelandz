@@ -5,9 +5,9 @@ import axios from "axios";
 const useCountryOptions = () => {
   const [countryOptions, setCountryOptions] = useState([]);
   const [filteredOriginOptions, setFilteredOriginOptions] = useState([]);
-  const [filteredDestinationOptions, setFilteredDestinationOptions] = useState(
-    []
-  );
+  // const [filteredDestinationOptions, setFilteredDestinationOptions] = useState(
+  //   []
+  // );
 
   useEffect(() => {
     const fetchCountries = async () => {
@@ -16,7 +16,7 @@ const useCountryOptions = () => {
         const countries = response.data;
         setCountryOptions(countries);
         setFilteredOriginOptions(countries);
-        setFilteredDestinationOptions(countries);
+        // setFilteredDestinationOptions(countries);
       } catch (error) {
         console.error(error);
       }
@@ -36,15 +36,15 @@ const useCountryOptions = () => {
     filterOptions(inputValue, setFilteredOriginOptions);
   };
 
-  const filterDestinationOptions = (inputValue) => {
-    filterOptions(inputValue, setFilteredDestinationOptions);
-  };
+  // const filterDestinationOptions = (inputValue) => {
+  //   filterOptions(inputValue, setFilteredDestinationOptions);
+  // };
 
   return {
     filteredOriginOptions,
-    filteredDestinationOptions,
+    // filteredDestinationOptions,
     filterOriginOptions,
-    filterDestinationOptions,
+    // filterDestinationOptions,
   };
 };
 
