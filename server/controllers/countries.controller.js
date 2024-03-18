@@ -1,5 +1,5 @@
 import axios from "axios";
-import { headers } from "../headers.js";
+import { headers, params } from "../components/paramsHeaders.js";
 
 // Api de Hotelbeds Bus
 const apiUrl = "https://api.test.hotelbeds.com/transfer-cache-api/1.0";
@@ -10,18 +10,18 @@ const main = async (req, res) => {
 
   try {
     const response = await axios.get(`${apiUrl}/locations/countries`, {
-      params: {
-        fields: "ALL",
-        language: "ES",
-        offset: 1,
-        limit: 100,
-      },
+      params: params,
       headers: headers,
     });
 
-    const countries = response.data;
+    const countries = response.data.map(country => ({
+      code: country.code,
+      name: country.name
+    }));
 
+    console.log(countries);
     res.json(countries);
+    
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "COUNTRY_NOT_FOUND" });

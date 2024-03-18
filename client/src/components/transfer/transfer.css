@@ -1,34 +1,39 @@
 .transferContainer {
-  height: auto;
+  height: 900px;
   width: auto;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
+  align-content: center;
   position: relative;
   top: 80px;
-  ;
-
 }
 
 .transferContainerInputs {
-  height: auto;
-  width: auto;
+  /* background-color: red; */
+  height: 900px;
+  width: 1500px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content:center;
+  justify-content: center;
   align-content: center;
-  gap: 20px;
-  top: 5px;
+  gap: 10px;
+  
 }
 
 .transferInputs {
-  height: 100px;
-  width: 600px;
+  /* background-color: red; */
+  height: 210px;
+  width: 420px;
+  border: 1px solid #2a99e4;
+  border-radius: 5px;
+  box-shadow: 1px 1px 4px #2a99e4;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .transferInputs-label {
@@ -44,29 +49,78 @@
   text-shadow: 1px 1px 3px #9d9da1;
 }
 
-.transferInputs-label h3{
+.transferInputs-label h3 {
   font-size: 18px;
   font-weight: 600;
+}
+
+.transferInputContainer {
+  /* background-color: blue; */
+  width: 350px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transferInputContainer input {
+  height: 70px;
+}
+
+.transferInputContainer select {
+  background-color: white;
+  width: 368px;
+  color: #2c2c2c;
+}
+
+.transferInputContainer select option {
+  background-color: white;
+  color: #2c2c2c;
 }
 
 .transferInput {
   width: 350px;
   height: 50px;
   border: none;
-  border-radius: 5px 5px;
+  border-radius: 5px;
   background-color: #2a99e4;
   color: white;
   font-weight: 700;
-  letter-spacing:0.02em;
+  letter-spacing: 0.02em;
   box-shadow: 2px 2px 5px #1a3946;
   font-size: 14px;
   outline: none;
   padding-left: 20px;
 }
-::placeholder {
-  font-weight:lighter;
-  font-size: 12px;
-  color: #726a6a;
+
+.transferInput:focus {
+  border-color: #ffffff; /* Cambiar el color del borde al enfocar */
+}
+
+.transferSelect {
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 20px;
+}
+
+.transferSelect:focus {
+  border-color: #ffffff; /* Cambiar el color del borde al enfocar */
+}
+
+.transferSelect {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: none;
+  font-size: 14px;
+  padding-left: 20px;
 }
 
 .transferIcon {
@@ -85,7 +139,7 @@
   width: 170px;
   height: 50px;
   border: none;
-  border-radius: 7px 7px;
+  border-radius: 7px;
   box-shadow: 0.1em 0.09em 1px black;
   cursor: pointer;
 }
@@ -94,6 +148,3 @@
   color: white;
   background-color: black;
 }
-
-
-
