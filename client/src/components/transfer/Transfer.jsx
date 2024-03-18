@@ -10,7 +10,7 @@ import useTerminalOptions from "../../hooks/useTerminalOptions.js";
 
 const Transfer = () => {
   const { filteredOriginOptions, filterOriginOptions } = useCountryOptions();
-  const { filteredTerminalOptions, filterTerminalOptions } =
+  const { filteredTerminalOptions, filterDestinationOptions } =
     useTerminalOptions();
   const [selectedOriginCountry, setSelectedOriginCountry] = useState("");
   const [selectedTerminal, setSelectedTerminal] = useState("");
@@ -56,8 +56,8 @@ const Transfer = () => {
               className="transferInput"
               value={selectedTerminal}
               onChange={(e) => setSelectedTerminal(e.target.value)}
-              placeholder="Search destination country"
-              onInput={(e) => filterTerminalOptions(e.target.value)}
+              placeholder="Search terminal"
+              onInput={(e) => filterDestinationOptions(e.target.value)} // Aquí se llama a filterDestinationOptions
             />
             <select
               className="transferSelect"
@@ -66,7 +66,6 @@ const Transfer = () => {
             >
               {filteredTerminalOptions.map((terminal) => (
                 <option key={terminal.id} value={terminal.description}>
-                  {/* Aquí debería ser terminal.description en lugar de country.description */}
                   {terminal.description}
                 </option>
               ))}
@@ -118,13 +117,14 @@ const Transfer = () => {
         <div className="transferInputs">
           <label className="transferInputs-label">
             <FaCarSide className="transferIcon" />
-            <h3>Type of transfer</h3>
+            <h3>Transfer type</h3>
           </label>
-          <input
-            type="text"
-            className="transferInput"
-            placeholder="Type of transfer"
-          />
+          <select class="form-select transferInput" aria-label="Default select example">
+            <option selected>Open this select menu</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+          </select>
         </div>
         <div className="transferInputs Button">
           <button type="submit" className="transferButton">

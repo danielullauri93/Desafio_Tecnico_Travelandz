@@ -20,15 +20,15 @@ const useTerminalOptions = () => {
     fetchTerminals();
   }, []);
 
-  const filterOptions = (inputValue, setFilteredOptions) => {
-    const filteredOptions = countryOptions.filter((option) =>
-      option.name.toLowerCase().includes(inputValue.toLowerCase())
+  const filterOptions = (inputValue, allOptions, setFilteredOptions) => {
+    const filteredOptions = allOptions.filter((option) =>
+      option.description.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFilteredOptions(filteredOptions);
   };
 
   const filterDestinationOptions = (inputValue) => {
-    filterOptions(inputValue, setFilteredTerminalOptions);
+    filterOptions(inputValue, terminalOptions, setFilteredTerminalOptions);
   };
 
   return {
