@@ -97,6 +97,8 @@
 
 .transferInput:focus {
   border-color: #ffffff; /* Cambiar el color del borde al enfocar */
+}::placeholder{
+  color : #c4bebe;
 }
 
 .transferSelect {

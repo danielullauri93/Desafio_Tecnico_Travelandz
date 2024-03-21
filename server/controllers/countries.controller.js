@@ -1,5 +1,5 @@
 import axios from "axios";
-import { headers, params } from "../components/paramsHeadersCountries.js";
+import { headers, params } from "../components/paramsHeaders.js";
 
 // Api de Hotelbeds Bus
 const apiUrl = "https://api.test.hotelbeds.com/transfer-cache-api/1.0";
@@ -19,7 +19,7 @@ const main = async (req, res) => {
       name: country.name
     }));
 
-    console.log(countries);
+    console.log(countries)
     res.json(countries);
     
   } catch (error) {

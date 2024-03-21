@@ -6,7 +6,7 @@ export const params = {
   fields: "ALL",
   language: "es",
   offset: 1,
-  limit: 100,
+  limit: 1000,
 };
 
 export const headers = {

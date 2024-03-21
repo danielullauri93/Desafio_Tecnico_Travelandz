@@ -1,50 +1,42 @@
-// useCountryOptions.js
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useCountryOptions = () => {
   const [countryOptions, setCountryOptions] = useState([]);
-  const [filteredOriginOptions, setFilteredOriginOptions] = useState([]);
-  // const [filteredDestinationOptions, setFilteredDestinationOptions] = useState(
-  //   []
-  // );
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchCountries = async () => {
       try {
         const response = await axios.get("/api/countries");
-        const countries = response.data;
-        setCountryOptions(countries);
-        setFilteredOriginOptions(countries);
-        // setFilteredDestinationOptions(countries);
+        setCountryOptions(response.data);
+        setLoading(false);
       } catch (error) {
-        console.error(error);
+        setError(error);
+        setLoading(false);
       }
     };
 
     fetchCountries();
   }, []);
 
-  const filterOptions = (inputValue, setFilteredOptions) => {
-    const filteredOptions = countryOptions.filter((option) =>
+  const filterOptions = (inputValue, allOptions, setFilteredOptions) => {
+    const filteredOptions = allOptions.filter((option) =>
       option.name.toLowerCase().includes(inputValue.toLowerCase())
     );
     setFilteredOptions(filteredOptions);
   };
 
-  const filterOriginOptions = (inputValue) => {
-    filterOptions(inputValue, setFilteredOriginOptions);
+  const filterOriginOptions = (inputValue, setFilteredOriginOptions) => {
+    filterOptions(inputValue, countryOptions, setFilteredOriginOptions);
   };
 
-  // const filterDestinationOptions = (inputValue) => {
-  //   filterOptions(inputValue, setFilteredDestinationOptions);
-  // };
-
   return {
-    filteredOriginOptions,
-    // filteredDestinationOptions,
+    countryOptions,
+    loading,
+    error,
     filterOriginOptions,
-    // filterDestinationOptions,
   };
 };
 

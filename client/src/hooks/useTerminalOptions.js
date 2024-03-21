@@ -3,38 +3,25 @@ import axios from "axios";
 
 const useTerminalOptions = () => {
   const [terminalOptions, setTerminalOptions] = useState([]);
-  const [filteredTerminalOptions, setFilteredTerminalOptions] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchTerminals = async () => {
       try {
         const response = await axios.get("/api/terminals");
-        const terminals = response.data;
-        setTerminalOptions(terminals);
-        setFilteredTerminalOptions(terminals);
+        setTerminalOptions(response.data);
+        setLoading(false);
       } catch (error) {
-        console.error(error);
+        setError(error);
+        setLoading(false);
       }
     };
 
     fetchTerminals();
   }, []);
 
-  const filterOptions = (inputValue, allOptions, setFilteredOptions) => {
-    const filteredOptions = allOptions.filter((option) =>
-      option.description.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    setFilteredOptions(filteredOptions);
-  };
-
-  const filterDestinationOptions = (inputValue) => {
-    filterOptions(inputValue, terminalOptions, setFilteredTerminalOptions);
-  };
-
-  return {
-    filteredTerminalOptions,
-    filterDestinationOptions,
-  };
+  return { terminalOptions, loading, error };
 };
 
 export default useTerminalOptions;
