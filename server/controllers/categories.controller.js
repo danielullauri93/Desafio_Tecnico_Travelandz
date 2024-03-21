@@ -4,7 +4,7 @@ import { headers, params } from "../components/paramsHeaders.js";
 const apiUrl = "https://api.test.hotelbeds.com/transfer-cache-api/1.0";
 
 const main = async (req, res) => {
-  console.log("Iniciando la función main...");
+  console.log("Iniciando la función categories...");
 
   try {
     const response = await axios.get(`${apiUrl}/masters/categories`, {
@@ -28,7 +28,6 @@ const main = async (req, res) => {
       };
     });
 
-    console.log(categories);
     res.json(categories);
   } catch (error) {
     console.error(error);

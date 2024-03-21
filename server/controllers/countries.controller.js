@@ -6,7 +6,7 @@ const apiUrl = "https://api.test.hotelbeds.com/transfer-cache-api/1.0";
 
 // Ruta para buscar países
 const main = async (req, res) => {
-  console.log("Iniciando la función main...");
+  console.log("Iniciando la función countries...");
 
   try {
     const response = await axios.get(`${apiUrl}/locations/countries`, {
@@ -19,7 +19,6 @@ const main = async (req, res) => {
       name: country.name
     }));
 
-    console.log(countries)
     res.json(countries);
     
   } catch (error) {

@@ -8,6 +8,9 @@ import useCountryOptions from "../../hooks/useCountryOptions.js";
 import useTerminalOptions from "../../hooks/useTerminalOptions.js";
 import useTransferTypeOptions from "../../hooks/useTransferTypeOptions.js";
 import useCategoryOptions from "../../hooks/useCategoryOptions.js";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import TimePicker from "react-bootstrap-time-picker";
 
 const Transfer = () => {
   const {
@@ -31,6 +34,17 @@ const Transfer = () => {
     error: categoryError,
   } = useCategoryOptions();
 
+  const [startDate, setStartDate] = useState(new Date());
+
+  const [time, setTime] = useState(0);
+  const handleTimeChange = (newTime) => {
+    console.log(newTime);
+    setTime(newTime);
+  };
+
+  const [numAdults, setNumAdults] = useState(0);
+  const [numChildren, setNumChildren] = useState(0);
+
   return (
     <div className="transferContainer">
       <form className="transferContainerInputs">
@@ -50,7 +64,7 @@ const Transfer = () => {
           />
           <datalist id="originOptions" className="transferInput">
             {countryOptions.map((country) => (
-              <option key={country.id} value={country.name} />
+              <option key={country.code} value={country.name} />
             ))}
           </datalist>
         </div>
@@ -80,10 +94,11 @@ const Transfer = () => {
             <FaCalendarAlt className="transferIcon" />
             <h3>Fecha de llegada </h3>
           </label>
-          <input
-            type="text"
+          <DatePicker
             className="transferInput"
-            placeholder="Enter Arrival Date"
+            selected={startDate}
+            dateFormat="dd/MM/yyyy"
+            onChange={(date) => setStartDate(date)}
           />
         </div>
         <div className="transferInputs">
@@ -91,10 +106,11 @@ const Transfer = () => {
             <IoTime className="transferIcon" />
             <h3>Hora de llegada</h3>
           </label>
-          <input
-            type="text"
+          <TimePicker
             className="transferInput"
-            placeholder="Enter Time of Arrival"
+            format={24}
+            onChange={handleTimeChange}
+            value={time}
           />
         </div>
 
@@ -103,12 +119,26 @@ const Transfer = () => {
             <FaUsers className="transferIcon" />
             <h3>Número de personas</h3>
           </label>
-          <input
-            type="text"
-            className="transferInput"
-            placeholder="Enter the number of people"
-          />
+          <div className="numPeopleInput">
+            <label>Adultos:</label>
+            <input
+              type="number"
+              min="0"
+              value={numAdults}
+              onChange={(e) => setNumAdults(e.target.value)}
+            />
+          </div>
+          <div className="numPeopleInput">
+            <label>Niños:</label>
+            <input
+              type="number"
+              min="0"
+              value={numChildren}
+              onChange={(e) => setNumChildren(e.target.value)}
+            />
+          </div>
         </div>
+
         <div className="transferInputs">
           <label className="transferInputs-label">
             <BiSolidCategory className="transferIcon" />
@@ -148,7 +178,7 @@ const Transfer = () => {
           </datalist>
         </div>
 
-        <div className="transferInputs Button">
+        <div className="transferInputs button">
           <button type="submit" className="transferButton">
             Solicitar
           </button>
