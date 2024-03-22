@@ -17,57 +17,36 @@ const main = async () => {
 
     // Creamos la tabla de usuarios.
     await pool.query(`
-            CREATE TABLE IF NOT EXISTS users (
+              CREATE TABLE IF NOT EXISTS users (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 email VARCHAR(100) UNIQUE NOT NULL,
                 username VARCHAR(30) UNIQUE NOT NULL,
                 password VARCHAR(100) NOT NULL,
-                avatar VARCHAR(100),
                 active BOOLEAN DEFAULT false,
                 role ENUM('admin', 'normal') DEFAULT 'normal',
-                registrationCode CHAR(30),
-                recoverPassCode CHAR(10),
-                createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, 
-                modifiedAt DATETIME ON UPDATE CURRENT_TIMESTAMP
-            )	
+              )	      
         `);
 
-    // Creamos la tabla de entradas.
+    // Creamos la tabla de traslado.
     await pool.query(`
-            CREATE TABLE IF NOT EXISTS entries (
+              CREATE TABLE TransferOptions (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                title VARCHAR(50) NOT NULL,
-                place VARCHAR(30) NOT NULL,
-                description TEXT NOT NULL,
-                userId INT UNSIGNED NOT NULL,
-                createdAt DATETIME DEFAULT CURRENT_TIMESTAMP, 
-                FOREIGN KEY (userId) REFERENCES users(id)
-            )
+                origin_country_code VARCHAR(255) NOT NULL,
+                origin_country_name VARCHAR(255) NOT NULL,
+                terminal_id INT NOT NULL,
+                terminal_description VARCHAR(255) NOT NULL,
+                arrival_date DATE NOT NULL,
+                arrival_time TIME NOT NULL,
+                num_adults INT NOT NULL,
+                num_children INT NOT NULL,
+                category_code VARCHAR(255) NOT NULL,
+                category_name VARCHAR(255) NOT NULL,
+                transfer_type_code VARCHAR(255) NOT NULL,
+                transfer_type_name VARCHAR(255) NOT NULL
+              )
         `);
 
-    // Creamos la tabla de fotos.
-    await pool.query(`
-            CREATE TABLE IF NOT EXISTS entryPhotos (
-                id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                name VARCHAR(100) NOT NULL,
-                entryId INT UNSIGNED NOT NULL,
-                FOREIGN KEY (entryId) REFERENCES entries(id),
-                createdAt DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        `);
 
-    // Tabla de votos.
-    await pool.query(`
-            CREATE TABLE IF NOT EXISTS entryVotes (
-                id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                value TINYINT UNSIGNED NOT NULL,
-                userId INT UNSIGNED NOT NULL,
-                entryId INT UNSIGNED NOT NULL,
-                createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (userId) REFERENCES users(id),
-                FOREIGN KEY (entryId) REFERENCES entries(id)
-            )
-        `);
 
     console.log("¡Tablas creadas!");
   } catch (err) {
@@ -81,7 +60,7 @@ const main = async () => {
 // Ejecutamos la función anterior.
 main();
 
-/** para ejecutar este archivo y se creen la base de datos y las tablas 
+/** para ejecutar este archivo y se creen la base de datos y las tablas
  * con el comando:
  * node .\db\initDb.js
-  */
+ */
