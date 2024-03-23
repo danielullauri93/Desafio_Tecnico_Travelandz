@@ -84,7 +84,7 @@ const Transfer = () => {
           />
           <datalist id="terminalOptions" className="transferInput">
             {terminalOptions.map((terminal) => (
-              <option key={terminal.id} value={terminal.description} />
+              <option key={terminal.code} value={terminal.description} />
             ))}
           </datalist>
         </div>

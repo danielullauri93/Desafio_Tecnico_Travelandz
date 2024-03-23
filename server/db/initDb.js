@@ -21,32 +21,28 @@ const main = async () => {
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 email VARCHAR(100) UNIQUE NOT NULL,
                 username VARCHAR(30) UNIQUE NOT NULL,
-                password VARCHAR(100) NOT NULL,
-                active BOOLEAN DEFAULT false,
-                role ENUM('admin', 'normal') DEFAULT 'normal',
-              )	      
+                password VARCHAR(100) NOT NULL
+              )
         `);
 
     // Creamos la tabla de traslado.
     await pool.query(`
               CREATE TABLE TransferOptions (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                origin_country_code VARCHAR(255) NOT NULL,
-                origin_country_name VARCHAR(255) NOT NULL,
-                terminal_id INT NOT NULL,
+                origin_code VARCHAR(10) NOT NULL,
+                origin_name VARCHAR(255) NOT NULL,
+                terminal_code VARCHAR(10) NOT NULL,
                 terminal_description VARCHAR(255) NOT NULL,
                 arrival_date DATE NOT NULL,
                 arrival_time TIME NOT NULL,
                 num_adults INT NOT NULL,
-                num_children INT NOT NULL,
-                category_code VARCHAR(255) NOT NULL,
+                num_child INT NOT NULL,
+                category_code VARCHAR(10) NOT NULL,
                 category_name VARCHAR(255) NOT NULL,
-                transfer_type_code VARCHAR(255) NOT NULL,
-                transfer_type_name VARCHAR(255) NOT NULL
+                transfer_code VARCHAR(10) NOT NULL,
+                transfer_name VARCHAR(255) NOT NULL
               )
         `);
-
-
 
     console.log("¡Tablas creadas!");
   } catch (err) {

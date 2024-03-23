@@ -1,0 +1,1 @@
+import useService from "../../services/received/index.service.js"

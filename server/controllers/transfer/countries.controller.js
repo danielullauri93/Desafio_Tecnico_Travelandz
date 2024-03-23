@@ -1,5 +1,5 @@
 import axios from "axios";
-import { headers, params } from "../components/paramsHeaders.js";
+import { headers, params } from "../../components/paramsHeaders.js";
 
 // Api de Hotelbeds Bus
 const apiUrl = "https://api.test.hotelbeds.com/transfer-cache-api/1.0";
