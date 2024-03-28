@@ -10,13 +10,13 @@ let pool;
 const getPool = async () => {
   try {
     if (!pool) {
-      const pootTemp = mysql.createPool({
+      const poolTemp = mysql.createPool({
         host: MYSQL_HOST,
         user: MYSQL_USER,
         password: MYSQL_PASS,
       });
 
-      await pootTemp.query(`CREATE DATABASE IF NOT EXISTS ${MYSQL_DB}`);
+      await poolTemp.query(`CREATE DATABASE IF NOT EXISTS ${MYSQL_DB}`);
 
       pool = mysql.createPool({
         host: MYSQL_HOST,

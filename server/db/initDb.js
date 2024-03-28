@@ -27,12 +27,12 @@ const main = async () => {
 
     // Creamos la tabla de traslado.
     await pool.query(`
-              CREATE TABLE TransferOptions (
+              CREATE TABLE transferoptions (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                 origin_code VARCHAR(10) NOT NULL,
                 origin_name VARCHAR(255) NOT NULL,
                 terminal_code VARCHAR(10) NOT NULL,
-                terminal_description VARCHAR(255) NOT NULL,
+                terminal_name VARCHAR(255) NOT NULL,
                 arrival_date DATE NOT NULL,
                 arrival_time TIME NOT NULL,
                 num_adults INT NOT NULL,
