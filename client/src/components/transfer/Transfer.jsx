@@ -70,15 +70,11 @@ const Transfer = () => {
   };
 
   const handleTimeChange = (newTime) => {
-    // Convierte la hora en milisegundos a una instancia de Date
     let date = new Date(newTime * 1000);
-    // Obtiene las horas, minutos y segundos de la instancia de Date
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
-    // Formatea la hora en una cadena de texto en el formato HH:mm:ss
     let timeString = `${hours}:${minutes}:${seconds}`;
-    // Actualiza el estado formData con la nueva hora formateada
     setFormData({ ...formData, arrivalTime: timeString });
   };
 
