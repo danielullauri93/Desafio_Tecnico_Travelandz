@@ -10,8 +10,6 @@ const getData = async (req, res) => {
 
     const [response] = await pool.query(sqlQuery);
 
-    console.log("Datos obtenidos de la base de datos:", response);
-
     res.status(200).json({ message: "Data retrieved successfully", data: response });
   } catch (error) {
     console.error(error);
