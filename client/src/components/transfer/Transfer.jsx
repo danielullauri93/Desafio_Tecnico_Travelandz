@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { FaCarSide, FaCalendarAlt } from "react-icons/fa";
 import { FaLocationDot, FaUsers } from "react-icons/fa6";
@@ -48,6 +49,8 @@ const Transfer = () => {
     transferName: "",
   });
 
+  const navigate = useNavigate();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -57,6 +60,7 @@ const Transfer = () => {
       );
       if (response.status === 200) {
         console.log("Data saved successfully");
+        navigate("/list");
       } else {
         console.error("Error saving data:", response.statusText);
       }

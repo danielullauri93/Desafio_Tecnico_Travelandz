@@ -29,17 +29,13 @@ const main = async () => {
     await pool.query(`
               CREATE TABLE transferoptions (
                 id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-                origin_code VARCHAR(10) NOT NULL,
                 origin_name VARCHAR(255) NOT NULL,
-                terminal_code VARCHAR(10) NOT NULL,
                 terminal_name VARCHAR(255) NOT NULL,
                 arrival_date DATE NOT NULL,
                 arrival_time TIME NOT NULL,
                 num_adults INT NOT NULL,
                 num_child INT NOT NULL,
-                category_code VARCHAR(10) NOT NULL,
                 category_name VARCHAR(255) NOT NULL,
-                transfer_code VARCHAR(10) NOT NULL,
                 transfer_name VARCHAR(255) NOT NULL
               )
         `);
